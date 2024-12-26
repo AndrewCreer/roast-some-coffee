@@ -1,0 +1,13 @@
+[Unit]
+Description=Coffee roaster webserver
+After=netowrk.target
+
+[Service]
+# User=pi
+WorkingDirectory=/home/pi/roast-some-coffee/
+ExecStart=/usr/bin/flask run  --host=0.0.0.0
+Environment=FLASK_APP=flaskr/app.py
+Environment=FLASK_DEBUG=1
+
+[Install]
+WantedBy=multi-user.target
